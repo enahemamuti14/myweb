@@ -4,6 +4,8 @@ from myapp import views
 from django.conf.urls.static import static
 from django.conf import settings
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -11,3 +13,5 @@ urlpatterns = [
     path('send-contact/', views.send_contact, name='send_contact'),
     path('product/send-order/', views.send_order, name='send_order'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
